@@ -1,0 +1,25 @@
+<mat-dialog-content>
+  <h2 mat-dialog-title>Editar Registro</h2>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Nome" formControlName="nome" />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Gênero</mat-label>
+      <mat-select formControlName="sexo">
+        <mat-option value="Masculino">Masculino</mat-option>
+        <mat-option value="Feminino">Feminino</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Data de Nascimento"
+        formControlName="dataNascimento"
+      />
+    </mat-form-field>
+  </form>
+</mat-dialog-content>

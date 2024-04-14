@@ -4,6 +4,7 @@ import { GymMember, Sexo } from 'src/app/model/GymMember';
 import { GymmemberService } from 'src/app/service/gymMember.service';
 import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confirmation.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogRegistrationComponent } from '../dialog-registration/dialog-registration.component';
 
 @Component({
   selector: 'app-table',
@@ -20,6 +21,13 @@ export class TableComponent implements OnInit {
     []
   );
   dataSourceGeral: GymMember[] = [];
+  displayedColumns: string[] = [
+    'nome',
+    'email',
+    'dataNascimento',
+    'sexo',
+    'actions',
+  ];
 
   ngOnInit(): void {
     this.gymMemberService.GetMembers().subscribe((data: any[]) => {
@@ -33,13 +41,20 @@ export class TableComponent implements OnInit {
       this.dataSource.data = formattedData;
     });
   }
-  displayedColumns: string[] = [
-    'nome',
-    'email',
-    'dataNascimento',
-    'sexo',
-    'actions',
-  ];
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogRegistrationComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('O diálogo foi fechado');
+      if (result) {
+        this.dataSource.data.push(result);
+        this.updateLocalStorageAndTable();
+      }
+    });
+  }
 
   editRecord(element: GymMember) {
     console.log('Edit:', element);

@@ -9,17 +9,19 @@ import { TableComponent } from './components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DialogAddEditComponent } from './components/dialog-add-edit/dialog-add-edit.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogConfirmationComponent } from './components/dialog-confirmation/dialog-confirmation.component';
+import { DialogRegistrationComponent } from './components/dialog-registration/dialog-registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TableComponent,
-    DialogAddEditComponent,
     DialogConfirmationComponent,
+    DialogRegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,8 @@ import { DialogConfirmationComponent } from './components/dialog-confirmation/di
     MatIconModule,
     MatFormFieldModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
