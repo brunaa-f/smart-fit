@@ -7,11 +7,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogRegistrationComponent } from '../dialog-registration/dialog-registration.component';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class TableComponent implements OnInit {
+export class HomeComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private gymMemberService: GymmemberService
