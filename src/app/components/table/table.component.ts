@@ -1,51 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-
-export enum Sexo {
-  M = 'Masculino',
-  F = 'Feminino',
-}
-
-export interface GymMember {
-  nome: string;
-  email: string;
-  dataNascimento: Date;
-  sexo: Sexo;
-}
-
-const ELEMENT_DATA: GymMember[] = [
-  {
-    nome: 'Joao Mendes',
-    email: 'Hydrogen@gmail.com',
-    dataNascimento: new Date(),
-    sexo: Sexo.M,
-  },
-  {
-    nome: 'Maria Pereira',
-    email: 'Helium@gmail.com',
-    dataNascimento: new Date(),
-    sexo: Sexo.F,
-  },
-  {
-    nome: 'Helena dos Santos',
-    email: 'Lithium@gmail.com',
-    dataNascimento: new Date(),
-    sexo: Sexo.F,
-  },
-  {
-    nome: 'Mario Cortella',
-    email: 'Beryllium@gmail.com',
-    dataNascimento: new Date(),
-    sexo: Sexo.M,
-  },
-];
+import { GymMember, Sexo } from 'src/app/model/GymMember';
+import { GymmemberService } from 'src/app/service/gymMember.service';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
+  constructor(private gymMemberService: GymmemberService) {}
+
+  dataSource: MatTableDataSource<GymMember> = new MatTableDataSource<GymMember>(
+    []
+  );
+  dataSourceGeral: GymMember[] = [];
+
+  ngOnInit(): void {
+    this.gymMemberService.GetMembers().subscribe((data: any[]) => {
+      const formattedData: GymMember[] = data.map((item) => ({
+        nome: item.Nome || item.nome || '',
+        email: item.Email || item.email || '',
+        dataNascimento: item.DataNascimento || item.dataNascimento || '',
+        sexo: item.Sexo === 'M' ? Sexo.M : Sexo.F,
+      }));
+
+      this.dataSource.data = formattedData;
+    });
+  }
   displayedColumns: string[] = [
     'nome',
     'email',
@@ -53,7 +35,6 @@ export class TableComponent {
     'sexo',
     'actions',
   ];
-  dataSource = new MatTableDataSource<GymMember>(ELEMENT_DATA);
 
   editRecord(element: GymMember) {
     console.log('Edit:', element);
