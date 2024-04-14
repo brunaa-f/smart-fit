@@ -10,6 +10,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DialogAddEditComponent } from './components/dialog-add-edit/dialog-add-edit.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogConfirmationComponent } from './components/dialog-confirmation/dialog-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { DialogAddEditComponent } from './components/dialog-add-edit/dialog-add-
     HeaderComponent,
     TableComponent,
     DialogAddEditComponent,
+    DialogConfirmationComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { DialogAddEditComponent } from './components/dialog-add-edit/dialog-add-
     MatTableModule,
     MatIconModule,
     MatFormFieldModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
