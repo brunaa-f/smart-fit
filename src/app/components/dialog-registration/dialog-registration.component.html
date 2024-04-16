@@ -1,6 +1,6 @@
 <mat-dialog-content>
   <h2 mat-dialog-title>Editar Registro</h2>
-  <form>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput placeholder="Nome" formControlName="nome" />
     </mat-form-field>
@@ -21,5 +21,9 @@
         formControlName="dataNascimento"
       />
     </mat-form-field>
+    <div mat-dialog-actions align="end">
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+      <button mat-button color="primary" type="submit">Salvar</button>
+    </div>
   </form>
 </mat-dialog-content>

@@ -44,11 +44,11 @@ export class HomeComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogRegistrationComponent, {
-      data: {},
+      width: '60%',
+      height: '400px',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('O diálogo foi fechado');
+    dialogRef.afterClosed().subscribe((result: GymMember | undefined) => {
       if (result) {
         this.dataSource.data.push(result);
         this.updateLocalStorageAndTable();
@@ -56,8 +56,29 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  editRecord(element: GymMember) {
-    console.log('Edit:', element);
+  editRecord(member: GymMember): void {
+    const dialogRef = this.dialog.open(DialogRegistrationComponent, {
+      width: '60%',
+      height: '400px',
+      data: member,
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        const index = this.dataSource.data.findIndex(
+          (item) => item === result.originalData
+        );
+        if (index !== -1) {
+          this.dataSource.data[index] = { ...result };
+          this.updateLocalStorageAndTable();
+        }
+      }
+    });
+  }
+
+  private updateLocalStorageAndTable(): void {
+    localStorage.setItem('alunos', JSON.stringify(this.dataSource.data));
+    this.dataSource = new MatTableDataSource<GymMember>(this.dataSource.data);
   }
 
   deleteRecord(element: GymMember): void {
@@ -72,10 +93,5 @@ export class HomeComponent implements OnInit {
         }
       }
     });
-  }
-
-  private updateLocalStorageAndTable(): void {
-    localStorage.setItem('alunos', JSON.stringify(this.dataSource.data));
-    this.dataSource = new MatTableDataSource<GymMember>(this.dataSource.data);
   }
 }
