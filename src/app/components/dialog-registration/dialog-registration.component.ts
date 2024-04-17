@@ -23,17 +23,11 @@ export class DialogRegistrationComponent implements OnInit {
   }
 
   private initializeForm(): void {
-    const formattedDate = this.data?.dataNascimento
-      ? new Date(this.data.dataNascimento)
-      : null;
-    const formattedDateString = formattedDate
-      ? formatDate(formattedDate, 'yyyy-MM-dd', 'en-US')
-      : null;
-
+    let a = this.data?.dataNascimento;
     this.registrationForm = this.formBuilder.group({
       nome: this.data?.nome || '',
       email: this.data?.email || '',
-      dataNascimento: formattedDateString,
+      dataNascimento: a || '',
       sexo: this.data?.sexo || '',
     });
   }

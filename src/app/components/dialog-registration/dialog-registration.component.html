@@ -1,10 +1,10 @@
 <mat-dialog-content>
   <h2 mat-dialog-title>Editar Registro</h2>
   <form [formGroup]="registrationForm">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput placeholder="Nome" formControlName="nome" />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput placeholder="Email" formControlName="email" />
     </mat-form-field>
 
@@ -12,14 +12,12 @@
       <mat-label>Date of birth</mat-label>
       <input
         matInput
-        [matDatepicker]="picker"
+        placeholder="DD/MM/YYYY"
         formControlName="dataNascimento"
       />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <mat-label>Gênero</mat-label>
       <mat-select formControlName="sexo">
         <mat-option value="M">Masculino</mat-option>
@@ -27,7 +25,7 @@
       </mat-select>
     </mat-form-field>
 
-    <div mat-dialog-actions align="end">
+    <div mat-dialog-actions>
       <button mat-button (click)="onCancelClick()">Cancelar</button>
       <button mat-button (click)="onSubmit()">Salvar</button>
     </div>
