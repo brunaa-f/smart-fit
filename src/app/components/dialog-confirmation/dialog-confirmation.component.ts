@@ -12,6 +12,7 @@ export class DialogConfirmationComponent {
   closeDialog(confirm: boolean): void {
     this.dialogRef.close(confirm);
   }
+
   onCancelClick(): void {
     this.dialogRef.close();
   }
