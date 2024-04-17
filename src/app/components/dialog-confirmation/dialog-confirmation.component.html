@@ -3,6 +3,6 @@
   <p>Tem certeza que deseja excluir este aluno?</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="closeDialog(false)">Cancelar</button>
-  <button mat-button color="warn" (click)="closeDialog(true)">Confirmar</button>
+  <button mat-button (click)="onCancelClick()">Cancelar</button>
+  <button mat-button (click)="closeDialog(true)">Confirmar</button>
 </div>

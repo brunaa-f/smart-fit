@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -22,15 +23,22 @@ export class DialogRegistrationComponent implements OnInit {
   }
 
   private initializeForm(): void {
+    const formattedDate = this.data?.dataNascimento
+      ? new Date(this.data.dataNascimento)
+      : null;
+    const formattedDateString = formattedDate
+      ? formatDate(formattedDate, 'yyyy-MM-dd', 'en-US')
+      : null;
+
     this.registrationForm = this.formBuilder.group({
       nome: this.data?.nome || '',
       email: this.data?.email || '',
-      dataNascimento: this.data?.dataNascimento || '',
+      dataNascimento: formattedDateString,
       sexo: this.data?.sexo || '',
     });
   }
 
-  onNoClick(): void {
+  onCancelClick(): void {
     this.dialogRef.close();
   }
 
