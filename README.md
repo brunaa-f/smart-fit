@@ -1,6 +1,13 @@
 # CRUD Angular 14
 Este projeto consiste em uma aplicação Angular que permite realizar operações CRUD em uma lista de alunos de uma academia, consumindo uma API REST e armazenando os dados localmente.
 
+## Pré requisitos
+Antes de começar, é necessário ter instalado em sua máquina as seguintes ferramentas:
+
+- [Git](https://git-scm.com)
+- [Node.js](https://nodejs.org/en/)
+- [Angular](https://cli.angular.io/)
+
 ## Instalação 🔧
 
 Para executar esse projeto localmente, siga esses passos:
@@ -10,7 +17,7 @@ Para executar esse projeto localmente, siga esses passos:
     ```
     git clone https://github.com/brunaa-f/smartFit
     ```
-2. Navigate to the directory:
+2. Navegue até o diretório:
    
    ```bash
     cd smartFit
