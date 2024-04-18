@@ -21,16 +21,16 @@
   margin: 0;
 }
 
-@font-face {
-  font-family: "Gilroy";
-  src: url("assets/fonts/gilroy/Gilroy-SemiBold.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
-}
-
 body {
   height: 100%;
   width: 100%;
   background-color: var(--light-background);
   font-family: "Gilroy";
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("assets/fonts/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
 }

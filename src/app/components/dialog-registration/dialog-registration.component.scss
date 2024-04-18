@@ -4,32 +4,37 @@
   flex-direction: column;
   align-items: center;
   max-width: 60vh;
+
+  color: var(--dark-grey);
 }
 
 .mat-form-field {
   width: 100%;
   max-width: 50rem;
+  color: var(--dark-grey);
+  border-color: var(--red);
 }
 
 .mat-dialog-actions {
   display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  justify-content: space-around;
 }
 
 #btn-save,
 #btn-cancel {
-  margin: 0 20px;
-  background-color: var(--medium-blue);
-  color: var(--light-text);
-  border-radius: 25px;
-  padding: 12px 24px;
-  border: none;
-  margin-bottom: 1rem;
-  text-align: center;
   display: flex;
   justify-content: center;
+  text-align: center;
+
+  border: none;
+  border-radius: 20px;
+
+  padding: 10px 20px;
+  margin-bottom: 1rem;
   width: 120px;
+
+  background-color: var(--medium-blue);
+  color: var(--light-text);
 }
 
 #btn-save:hover,
