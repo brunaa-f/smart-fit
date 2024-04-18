@@ -6,6 +6,8 @@ import { DialogConfirmationComponent } from '../dialog-confirmation/dialog-confi
 import { MatDialog } from '@angular/material/dialog';
 import { DialogRegistrationComponent } from '../dialog-registration/dialog-registration.component';
 
+const EMPTY_STRING: string = '';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -32,9 +34,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.gymMemberService.GetMembers().subscribe((data: any[]) => {
       const formattedData: GymMember[] = data.map((item) => ({
-        nome: item.Nome || item.nome || '',
-        email: item.Email || item.email || '',
-        dataNascimento: item.DataNascimento || item.dataNascimento || '',
+        nome: item.Nome || item.nome || EMPTY_STRING,
+        email: item.Email || item.email || EMPTY_STRING,
+        dataNascimento:
+          item.DataNascimento || item.dataNascimento || EMPTY_STRING,
         sexo: item.Sexo === 'M' ? Sexo.M : Sexo.F,
       }));
 
@@ -55,7 +58,7 @@ export class HomeComponent implements OnInit {
 
   private isMemberNotEmpty(member: GymMember): boolean {
     return Object.values(member).some(
-      (value) => value !== '' && value !== null
+      (value) => value !== EMPTY_STRING && value !== null
     );
   }
 
@@ -78,7 +81,12 @@ export class HomeComponent implements OnInit {
   }
 
   private updateLocalStorageAndTable(): void {
-    localStorage.setItem('alunos', JSON.stringify(this.dataSource.data));
+    const alunosStorageKey = 'alunos';
+
+    localStorage.setItem(
+      alunosStorageKey,
+      JSON.stringify(this.dataSource.data)
+    );
     this.dataSource = new MatTableDataSource<GymMember>(this.dataSource.data);
   }
 
