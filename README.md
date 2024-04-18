@@ -31,6 +31,12 @@ Para executar esse projeto localmente, siga esses passos:
 
 Execute o seguinte comando `ng serve`. Acesse `http://localhost:4200/` em seu navegador. A aplicação será recarregada automaticamente caso você faça alguma alteração nos arquivos de origem.
 
+## Preview
+
+![Desktop](img/1.png)
+![Mobile](img/2.png)
+![Test](img/3.png)
+
 ## Executando testes unitários  📝
 
 Para executar os testes unitários, utilize o comando `ng test`. Isso acionará os testes via [Karma](https://karma-runner.github.io).
