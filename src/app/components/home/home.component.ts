@@ -43,10 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogRegistrationComponent, {
-      width: '60%',
-      height: '400px',
-    });
+    const dialogRef = this.dialog.open(DialogRegistrationComponent, {});
 
     dialogRef.afterClosed().subscribe((result: GymMember | undefined) => {
       if (result) {
@@ -58,8 +55,6 @@ export class HomeComponent implements OnInit {
 
   editRecord(member: GymMember): void {
     const dialogRef = this.dialog.open(DialogRegistrationComponent, {
-      width: '60%',
-      height: '400px',
       data: member,
     });
 

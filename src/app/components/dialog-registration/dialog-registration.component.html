@@ -26,8 +26,10 @@
     </mat-form-field>
 
     <div mat-dialog-actions>
-      <button mat-button (click)="onCancelClick()">Cancelar</button>
-      <button mat-button (click)="onSubmit()">Salvar</button>
+      <button id="btn-cancel" mat-button (click)="onCancelClick()">
+        Cancelar
+      </button>
+      <button id="btn-save" mat-button (click)="onSubmit()">Salvar</button>
     </div>
   </form>
 </mat-dialog-content>
