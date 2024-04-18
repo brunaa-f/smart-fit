@@ -46,11 +46,17 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogRegistrationComponent, {});
 
     dialogRef.afterClosed().subscribe((result: GymMember | undefined) => {
-      if (result) {
+      if (result !== undefined && this.isMemberNotEmpty(result)) {
         this.dataSource.data.push(result);
         this.updateLocalStorageAndTable();
       }
     });
+  }
+
+  private isMemberNotEmpty(member: GymMember): boolean {
+    return Object.values(member).some(
+      (value) => value !== '' && value !== null
+    );
   }
 
   editRecord(member: GymMember): void {
