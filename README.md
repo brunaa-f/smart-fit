@@ -1,7 +1,7 @@
 # CRUD Angular 14
 Este projeto consiste em uma aplicação Angular que permite realizar operações CRUD em uma lista de alunos de uma academia, consumindo uma API REST e armazenando os dados localmente.
 
-## Pré requisitos
+## Pré requisitos  ⚠️
 Antes de começar, é necessário ter instalado em sua máquina as seguintes ferramentas:
 
 - [Git](https://git-scm.com)
@@ -31,7 +31,7 @@ Para executar esse projeto localmente, siga esses passos:
 
 Execute o seguinte comando `ng serve`. Acesse `http://localhost:4200/` em seu navegador. A aplicação será recarregada automaticamente caso você faça alguma alteração nos arquivos de origem.
 
-## Executando testes unitários
+## Executando testes unitários  📝
 
 Para executar os testes unitários, utilize o comando `ng test`. Isso acionará os testes via [Karma](https://karma-runner.github.io).
 
