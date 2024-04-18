@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
       }));
 
       this.dataSource.data = formattedData;
+      this.dataSourceGeral = formattedData;
     });
   }
 
@@ -102,5 +103,16 @@ export class HomeComponent implements OnInit {
         }
       }
     });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.data = this.dataSourceGeral.filter((member) =>
+      member.nome.toLowerCase().includes(filterValue.trim().toLowerCase())
+    );
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

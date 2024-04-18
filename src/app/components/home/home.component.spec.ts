@@ -81,5 +81,86 @@ describe('HomeComponent', () => {
     }));
   });
 
-  // Add more test cases for other methods if needed
+  describe('applyFilter', () => {
+    it('should filter data', () => {
+      // Arrange
+      const mockMembers: GymMember[] = [
+        {
+          nome: 'John Doe',
+          email: 'john@example.com',
+          dataNascimento: '2000-01-01',
+          sexo: Sexo.M,
+        },
+        {
+          nome: 'Jane Smith',
+          email: 'jane@example.com',
+          dataNascimento: '1995-05-15',
+          sexo: Sexo.F,
+        },
+      ];
+      component.dataSourceGeral = mockMembers;
+      component.dataSource.data = mockMembers;
+
+      // Act
+      component.applyFilter({ target: { value: 'John' } } as any);
+
+      // Assert
+      expect(component.dataSource.filteredData.length).toBe(1);
+      expect(component.dataSource.filteredData[0].nome).toBe('John Doe');
+    });
+
+    it('should filter case-insensitive', () => {
+      // Arrange
+      const mockMembers: GymMember[] = [
+        {
+          nome: 'John Doe',
+          email: 'john@example.com',
+          dataNascimento: '2000-01-01',
+          sexo: Sexo.M,
+        },
+        {
+          nome: 'Jane Smith',
+          email: 'jane@example.com',
+          dataNascimento: '1995-05-15',
+          sexo: Sexo.F,
+        },
+      ];
+      component.dataSourceGeral = mockMembers;
+      component.dataSource.data = mockMembers;
+
+      // Act
+      component.applyFilter({ target: { value: 'doe' } } as any);
+
+      // Assert
+      expect(component.dataSource.filteredData.length).toBe(1);
+      expect(component.dataSource.filteredData[0].nome).toBe('John Doe');
+    });
+
+    it('should reset filter when input value is empty', () => {
+      // Arrange
+      const mockMembers: GymMember[] = [
+        {
+          nome: 'John Doe',
+          email: 'john@example.com',
+          dataNascimento: '2000-01-01',
+          sexo: Sexo.M,
+        },
+        {
+          nome: 'Jane Smith',
+          email: 'jane@example.com',
+          dataNascimento: '1995-05-15',
+          sexo: Sexo.F,
+        },
+      ];
+      component.dataSourceGeral = mockMembers;
+      component.dataSource.data = mockMembers;
+      component.applyFilter({ target: { value: 'John' } } as any);
+
+      // Act
+      component.applyFilter({ target: { value: '' } } as any);
+
+      // Assert
+      expect(component.dataSource.filteredData.length).toBe(2);
+    });
+  });
 });

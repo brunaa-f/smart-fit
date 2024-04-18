@@ -5,10 +5,20 @@
 </header>
 
 <div class="container">
-  <div class="btn-container">
-    <button mat-raised-button id="btn-add" (click)="openDialog()">
-      Novo aluno
-    </button>
+  <div class="toolbar-container">
+    <div class="search-container">
+      <input
+        #searchInput
+        (keyup)="applyFilter($event)"
+        type="text"
+        placeholder="Pesquisar..."
+      />
+    </div>
+    <div class="btn-container">
+      <button mat-raised-button id="btn-add" (click)="openDialog()">
+        Novo aluno
+      </button>
+    </div>
   </div>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

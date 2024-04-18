@@ -29,6 +29,29 @@ header .logo-container img {
   height: 50px;
 }
 
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search-container input[type="text"] {
+  padding: 8px;
+  border-radius: 25px;
+  margin-right: 10px;
+  width: 300px;
+  width: 300px;
+  border: 1px solid var(--light-grey);
+}
+
+.search-container input[type="text"]:focus {
+  outline: none;
+  border-color: var(--light-grey);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.1);
+}
+
 .container {
   display: flex;
   min-width: 400px;
@@ -40,18 +63,13 @@ header .logo-container img {
   padding: 1rem;
 }
 
-.btn-container {
-  align-self: flex-end;
-}
-
 #btn-add {
   display: flex;
   justify-content: center;
 
-  padding: 12px 24px;
+  padding: 9px;
   border-radius: 25px;
   border: none;
-  margin-bottom: 1rem;
 
   text-align: center;
   font-size: 28;
