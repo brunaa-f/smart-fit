@@ -40,8 +40,7 @@ header .logo-container {
   padding: 8px;
   border-radius: 25px;
   margin-right: 10px;
-  width: 300px;
-  width: 300px;
+  width: 340px;
   border: 1px solid var(--light-grey);
 }
 
@@ -70,9 +69,7 @@ header .logo-container {
   border-radius: 25px;
   border: none;
 
-  text-align: center;
-  font-size: 28;
-  width: 120px;
+  width: 100px;
 
   color: var(--light-text);
   background-color: var(--medium-blue);
@@ -110,25 +107,25 @@ td {
   color: var(--dark-gray);
 }
 
-.mat-header-cell {
-  background-color: rgb(245, 249, 249);
-}
-
 .mat-header-cell,
 .mat-cell {
   font-size: 14px;
-  padding: 5px;
-  text-align: left;
   border-bottom: 1px solid var(--light-grey);
+}
+
+.mat-header-cell {
+  background-color: rgb(244, 246, 248);
+  font-size: 17px;
 }
 
 .mat-cell {
   border-bottom: none;
 }
 
-.action-cell {
+.action-cell .action-icons {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .mat-row:nth-child(even) {
