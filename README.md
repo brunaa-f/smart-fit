@@ -1,27 +1,20 @@
-# smartfit
+# CRUD Angular 14
+Este projeto consiste em uma aplicação Angular que permite realizar operações CRUD em uma lista de alunos de uma academia, consumindo uma API REST e armazenando os dados localmente.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+## Iniciando a aplicação
 
-## Development server
+1. Para clonar o repositório, você pode executar o seguinte comando:
+   
+    ```
+    git clone https://github.com/brunaa-f/smartFit
+    ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  
 
-## Code scaffolding
+2. Execute `ng serve` ara iniciar um servidor de desenvolvimento. Acesse `http://localhost:4200/` em seu navegador. A aplicação será recarregada automaticamente caso você faça alguma alteração nos arquivos de origem.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Executando testes unitários
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para executar os testes unitários, utilize o comando `ng test`. Isso acionará os testes via [Karma](https://karma-runner.github.io).
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
